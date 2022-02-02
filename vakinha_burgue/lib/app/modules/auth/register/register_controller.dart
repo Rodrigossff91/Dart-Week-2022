@@ -1,9 +1,12 @@
 import 'dart:developer';
 
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:vakinha_burgue/app/core/constants/constants.dart';
 import 'package:vakinha_burgue/app/core/mixins/loader_mixin.dart';
 import 'package:vakinha_burgue/app/core/mixins/messages_mixin.dart';
 import 'package:vakinha_burgue/app/core/rest_Client/rest_client.dart';
+import 'package:vakinha_burgue/app/models/user_model.dart';
 import 'package:vakinha_burgue/app/repositories/auth/auth_repository.dart';
 
 class RegisterController extends GetxController
@@ -30,13 +33,10 @@ class RegisterController extends GetxController
       required String password}) async {
     try {
       _loading.toggle();
-      await _authRepository.register(name, email, password);
+      UserModel userLogged =
+          await _authRepository.register(name, email, password);
       _loading.toggle();
-      Get.back();
-      _message(MessageModel(
-          title: "Sucesso",
-          message: "Cadastro realizado com sucesso",
-          type: MessageType.info));
+      GetStorage().write(Constants.USER_KEY, userLogged.id);
     } on RestClientException catch (e, s) {
       _loading.toggle();
       log('Erro ao Registrar login', error: e, stackTrace: s);

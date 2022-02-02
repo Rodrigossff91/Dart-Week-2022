@@ -1,10 +1,12 @@
 import 'package:get/get.dart';
+import 'package:vakinha_burgue/app/modules/splash/splash_bindings.dart';
 import 'package:vakinha_burgue/app/modules/splash/splash_page.dart';
 
 class SplashRouters {
   SplashRouters._();
 
   static final routers = <GetPage>[
-    GetPage(name: '/', page: () => const SplashPage()),
+    GetPage(
+        name: '/', page: () => const SplashPage(), binding: SplashBindings()),
   ];
 }

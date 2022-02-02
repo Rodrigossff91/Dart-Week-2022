@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/utils.dart';
 import 'package:vakinha_burgue/app/core/ui/widgets/vakinha_buttom.dart';
+import 'package:vakinha_burgue/app/modules/splash/splash_controller.dart';
 
-class SplashPage extends StatelessWidget {
+class SplashPage extends GetView<SplashController> {
   const SplashPage({Key? key}) : super(key: key);
 
   @override
@@ -37,7 +38,7 @@ class SplashPage extends StatelessWidget {
                 VakinhaButton(
                   label: "ACESSAR",
                   onPressed: () {
-                    Get.toNamed('/auth/login');
+                    controller.checkLogged();
                   },
                   height: 34,
                   width: context.widthTransformer(reducedBy: 40),
