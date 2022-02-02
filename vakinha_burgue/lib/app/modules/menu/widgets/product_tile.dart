@@ -41,7 +41,7 @@ class ProductTile extends StatelessWidget {
                       product.name,
                       style: VakinhaUI.textBold,
                     ),
-                    Text(r"R$200")
+                    Text("")
                   ],
                 ),
               ),
