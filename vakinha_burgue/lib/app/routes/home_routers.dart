@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:vakinha_burgue/app/modules/Home/Home_bindings.dart';
+import 'package:vakinha_burgue/app/modules/home/home_bindings.dart';
 import 'package:vakinha_burgue/app/modules/home/home_page.dart';
 
 class HomeRouters {
