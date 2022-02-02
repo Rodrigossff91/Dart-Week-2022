@@ -1,0 +1,3 @@
+class FormatterHelper {
+  FormatterHelper._();
+}
