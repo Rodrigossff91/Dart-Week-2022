@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vakinha_burgue/app/core/services/auth_service.dart';
+import 'package:vakinha_burgue/app/core/services/shopping_card_service.dart';
 import 'package:vakinha_burgue/app/modules/menu/menu_bindings.dart';
 import 'package:vakinha_burgue/app/modules/menu/menu_page.dart';
 
@@ -10,6 +11,13 @@ class HomeController extends GetxController {
   final _tabIndex = 0.obs;
 
   int get tabIndex => _tabIndex.value;
+
+  int get totalProductsInShoppingCard => _shoppingCardService.totalProducts;
+
+  final ShoppingCardService _shoppingCardService;
+  HomeController({
+    required ShoppingCardService shoppingCardService,
+  }) : _shoppingCardService = shoppingCardService;
 
   final _tabs = ['/menu', '/order/shopping_card', '/exit'];
 

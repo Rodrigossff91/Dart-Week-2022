@@ -43,4 +43,16 @@ class MenuController extends GetxController with LoaderMixin, MessagesMixin {
     final products = await _productRepository.findAll();
     menu.assignAll(products);
   }
+
+  Future<void> refreshPage() async {
+    try {
+      await findAllProducts();
+    } catch (e) {
+      log("Erro ao buscar produtos", error: e, stackTrace: StackTrace.current);
+      _message(MessageModel(
+          title: "Erro",
+          message: "Erro ao buscar produtos",
+          type: MessageType.error));
+    }
+  }
 }
