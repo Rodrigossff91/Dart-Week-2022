@@ -62,10 +62,11 @@ class PlusMinusBox extends StatelessWidget {
             Visibility(visible: label == null, child: const Spacer()),
             Container(
               margin: const EdgeInsets.only(left: 20, right: 10),
-              constraints: const BoxConstraints(minWidth: 70),
+              constraints: const BoxConstraints(minWidth: 50),
               child: Text(
                 FormatterHelper.formatCurrency(
                     calcularTotal ? price * quantidade : price),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ],
