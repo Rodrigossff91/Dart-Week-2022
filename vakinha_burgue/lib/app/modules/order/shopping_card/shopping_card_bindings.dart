@@ -9,9 +9,10 @@ class ShoppingCardBindings implements Bindings {
   void dependencies() {
     Get.lazyPut<IOrderRespository>(
         () => OrderRespository(restClient: Get.find()));
-    Get.put(ShoppingCardController(
+
+    Get.lazyPut(() => ShoppingCardController(
         authService: Get.find(),
-        shoppingCardService: Get.find(),
-        orderRespository: Get.find()));
+        orderRespository: Get.find(),
+        shoppingCardService: Get.find()));
   }
 }
